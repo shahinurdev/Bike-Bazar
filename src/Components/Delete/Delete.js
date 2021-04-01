@@ -3,7 +3,7 @@ import React from 'react';
 const Delete = (props) => {
     const{model,price,_id}= props.bike;
     const deleteBike=(id)=>{
-        fetch(`http://localhost:3005/deleteBike/${id}`,{
+        fetch(`https://rhubarb-cupcake-17446.herokuapp.com/deleteBike/${id}`,{
             method: 'DELETE',
             headers: {
                 'Content-type': 'application/json; charset=UTF-8'

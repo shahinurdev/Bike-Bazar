@@ -9,7 +9,7 @@ const Home = () => {
   console.log('check all bikes',bikes);
 
   useEffect(() => {
-      fetch('http://localhost:3005/allbikes')
+      fetch('https://rhubarb-cupcake-17446.herokuapp.com/allbikes')
       .then(res => res.json())
       .then(data => setBikes(data))
   }, [])

@@ -9,7 +9,7 @@ const CheckOut = () => {
     const {id}= useParams();
     const [singleBike,setSingleBike]= useState({});
     useEffect(()=>{
-        fetch('http://localhost:3005/selectedBike/'+id)
+        fetch('https://rhubarb-cupcake-17446.herokuapp.com/selectedBike/'+id)
         .then(res=>res.json())
         .then(data=>setSingleBike(data))
     },[id]);
