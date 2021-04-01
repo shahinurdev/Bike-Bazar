@@ -1,0 +1,22 @@
+.card{
+    margin: 3rem!important;
+    /* height: 250px; */
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    float: left;
+}
+.row{
+    width: 300px;
+    padding:20px
+
+}
+.column{
+    flex: none;
+}
+.bike-btn{
+    margin-left: 84px;
+}
+.home{
+    margin-left: 66px;
+}
