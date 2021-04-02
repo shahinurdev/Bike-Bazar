@@ -12,7 +12,7 @@ const Orders = () => {
         .then(data =>setOrders(data))
     },[])
     return (
-        <div className="container">
+        <div className="container order-main">
             <h3>Name: {loggedInUser.displayName}</h3>
             <h3>Your Email: {loggedInUser.email}</h3>
             <h4>You Have {orders.length} Orders</h4>

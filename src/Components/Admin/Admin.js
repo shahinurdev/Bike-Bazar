@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import Delete from '../Delete/Delete';
+import "./Admin.css";
 
 const Admin = () => {
     const { register, handleSubmit} = useForm();
@@ -47,18 +48,38 @@ const Admin = () => {
   }, [])
 
     return (
-        <div>
+        <div className='container'>
+            <div className="row admin-row">
+                <div className="col-md-6 pt-3">
+                <h5 className="bikes-add"> <strong>Bikes Add</strong> </h5>
+               
               <form onSubmit={handleSubmit(onSubmit)}>
-                <input name="name" defaultValue="ModelName" ref={register} /><br/>
-                <input name="price" defaultValue="Price" ref={register} /><br/>
-                <input name="exampleRequired" type="file" onChange={handleImgUpload}/><br/>
-                <input type="submit" />
+                  <div className="form-group">
+                  <label htmlFor="name">Bike Name</label>
+                <input className="form-control" name="name" defaultValue="ModelName" ref={register} />
+                </div>
+
+                <div className="form-group">
+                <label htmlFor="price">price</label>
+                <input  className="form-control" name="price" defaultValue="Price" ref={register} />
+                </div>
+
+                <div className="form-group">
+                <label htmlFor="name">Add Bike Photo</label>
+                <input className="form-control-file" name="file" type="file" onChange={handleImgUpload}/>
+                </div>
+                
+                <input className="btn btn-success" type="submit" value='Save' /> 
               </form>
-              <br/>
+              </div>
+
+              <div className="col-md-6 pt-2 border-left ">
+              <h5 className="manage-bikes"> <strong>Manage Bikes</strong> </h5>
               {
                   bikes.map(bike=><Delete bike={bike}></Delete>)
               }
-              
+             </div>
+              </div>
         </div>
     );
 };

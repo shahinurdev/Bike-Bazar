@@ -23,21 +23,24 @@ function App() {
     <div>
     <Header></Header>
       <Switch>
-        <Route path="/home">
+        <Route exact path="/">
           <Home />
         </Route>
-        <PrivateRoute path="/checkout/:id">
+        <Route path="/checkout/:id">
           <CheckOut></CheckOut>
-        </PrivateRoute>
+        </Route>
         <Route path="/login">
             <Login></Login>
           </Route>
         <Route path="/admin">
             <Admin></Admin>
           </Route>
-        <PrivateRoute path="/orders">
+        <Route path="/orders">
             <Orders></Orders>
-          </PrivateRoute>
+          </Route>
+          <Route path="*">
+            <Home></Home>
+          </Route>
       </Switch>
     </div>
   </Router>

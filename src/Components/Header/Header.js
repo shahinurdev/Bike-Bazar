@@ -7,9 +7,9 @@ import {
 const Header = () => {
     return (
         <div>
-         <div class="header">
-            <h1 class="logo">Bike Bazar</h1>
-            <div class="header-right">
+         <div className="header">
+            <h1 className="logo">Bike Bazar</h1>
+            <div className="header-right">
                 <Link to="/home">Home</Link>
                 <Link to="/orders">Orders</Link>
                 <Link to="/admin">Admin</Link>

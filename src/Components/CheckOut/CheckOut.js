@@ -2,10 +2,11 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { UserContext } from '../../App';
+import './Checkout.css'
 
 const CheckOut = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { handleSubmit } = useForm();
     const {id}= useParams();
     const [singleBike,setSingleBike]= useState({});
     useEffect(()=>{
@@ -24,22 +25,36 @@ const CheckOut = () => {
           .then(res=>res.json())
           .then(data =>{
             if(data){
-              alert('Success')
+              alert('Order Successfully Done')
             }
           })
 
 
     }
 
-
     return (
-        <div>   
-            Email: {loggedInUser.displayName}
-            <h3>Name: {singleBike.model}</h3>
-           <p>price: {singleBike.price}</p>
+        <div className="container checkout-main ">   
+        <h3>CheckOut</h3>
+            <div className="row border-bottom row-checkout">
+             <div className="col-6">
+            <p>Name</p>
+            </div>
+            <div className="col-6">
+           <p>Price</p>
+           </div>
+           </div>
+
+            <div className="row border-bottom row-checkout">
+             <div className="col-6">
+            <p>{singleBike.model}</p>
+            </div>
+            <div className="col-6">
+           <p>${singleBike.price}</p>
+           </div>
+           </div>
       <form onSubmit={handleSubmit(onSubmit)}>
       
-      <input type="submit" />
+      <input type="submit" value="CheckOut" />
      </form>
         </div>
     );
