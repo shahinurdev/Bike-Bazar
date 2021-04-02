@@ -6,8 +6,6 @@ import './Home.css'
 import { Link } from 'react-router-dom';
 const Home = () => {
   const [bikes, setBikes] = useState([]);
-  console.log('check all bikes',bikes);
-
   useEffect(() => {
       fetch('https://rhubarb-cupcake-17446.herokuapp.com/allbikes')
       .then(res => res.json())
@@ -27,7 +25,7 @@ const Home = () => {
         <Col className="column">
           <Card.Body>
             <Card.Title >
-              Model: {bike.model}
+              Name: {bike.model}
             </Card.Title>
             <Card.Text >
              price: ${bike.price}

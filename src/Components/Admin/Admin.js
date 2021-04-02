@@ -13,14 +13,14 @@ const Admin = () => {
             imgeURL: imgUrl,
             price:data.price
         }
-        console.log(eventData);
+        
        const url = `http://localhost:3005/addBike`
        fetch(url,{
            method: 'POST',
            headers:{'Content-Type': 'application/json'},
            body: JSON.stringify(eventData)
        })
-       .then(res =>console.log('server side respo',res))
+       .then(res =>console.log(res))
     };
     const handleImgUpload = event =>{
         const imgData = new FormData();
@@ -30,7 +30,6 @@ const Admin = () => {
         axios.post('https://api.imgbb.com/1/upload', 
     imgData)
     .then(function (response) {
-        console.log(response.data.data.display_url);
         setImgUrl(response.data.data.display_url);
 
     })
@@ -39,7 +38,7 @@ const Admin = () => {
     });
     }
     const [bikes, setBikes] = useState([]);
-  console.log('check all bikes',bikes);
+  
 
   useEffect(() => {
       fetch('https://rhubarb-cupcake-17446.herokuapp.com/allbikes')

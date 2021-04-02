@@ -1,6 +1,5 @@
 .card{
     margin: 3rem!important;
-    /* height: 250px; */
     width: 300px;
     display: flex;
     flex-wrap: wrap;

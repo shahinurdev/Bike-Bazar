@@ -5,7 +5,7 @@ import { UserContext } from '../../App';
 import './Checkout.css'
 
 const CheckOut = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const { handleSubmit } = useForm();
     const {id}= useParams();
     const [singleBike,setSingleBike]= useState({});

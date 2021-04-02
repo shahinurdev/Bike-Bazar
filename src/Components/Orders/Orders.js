@@ -3,14 +3,13 @@ import { UserContext } from '../../App';
 import './Orders.css';
 
 const Orders = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser] = useContext(UserContext);
     const [orders,setOrders] = useState([]);
-    console.log('orders',orders);
     useEffect(() =>{
-        fetch('https://rhubarb-cupcake-17446.herokuapp.com/orders')
+        fetch('https://rhubarb-cupcake-17446.herokuapp.com/orders?email='+loggedInUser.email)
         .then(res=> res.json())
         .then(data =>setOrders(data))
-    },[])
+    },[loggedInUser.email])
     return (
         <div className="container order-main">
             <h3>Name: {loggedInUser.displayName}</h3>
@@ -24,6 +23,7 @@ const Orders = () => {
                     <li className="list-group-item">Bike Mode: {order.order.singleBike.model}</li>
                     <li className="list-group-item">Price: {order.order.singleBike.price}</li>
                     <li className="list-group-item">Order Time: {order.orderTime}</li>
+                    <li className="list-group-item">email: {order.email}</li>
                 </ul>
             </div>
 
